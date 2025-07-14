@@ -1,5 +1,5 @@
 [tool.poetry]
-authors = ["Your Name <you@example.com>"]
+authors = ["ALAOUA Ahmed <ahmedalaoua@gmail.com>"]
 description = ""
 name = "django-template"
 version = "0.1.0"
@@ -32,10 +32,10 @@ description = "Professional security audit tool for Django projects"
 readme = "README.md"
 license = {file = "LICENSE"}
 authors = [
-    {name = "Django Security Scanner Team", email = "security@django-scanner.org"}
+    {name = "Django Security Scanner Team", email = "ahmedalaoua@gmail.com"}
 ]
 maintainers = [
-    {name = "Django Security Scanner Team", email = "security@django-scanner.org"}
+    {name = "Django Security Scanner Team", email = "ahmedalaoua@gmail.com"}
 ]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -78,11 +78,11 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/django-security-scanner/django-security-scanner"
-Documentation = "https://django-security-scanner.readthedocs.io/"
-Repository = "https://github.com/django-security-scanner/django-security-scanner.git"
-"Bug Tracker" = "https://github.com/django-security-scanner/django-security-scanner/issues"
-Changelog = "https://github.com/django-security-scanner/django-security-scanner/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/Ahmadix/django-security-scanner"
+Documentation = ""
+Repository = ""
+"Bug Tracker" = ""
+Changelog = ""
 
 [project.scripts]
 django-security-scan = "django_security_scanner.cli:main"
