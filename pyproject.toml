@@ -1,0 +1,122 @@
+[tool.poetry]
+authors = ["Your Name <you@example.com>"]
+description = ""
+name = "django-template"
+version = "0.1.0"
+[tool.poetry.dependencies]
+Django = "^5.0"
+python = "^3.10"
+[tool.poetry.dev-dependencies]
+
+[tool.pyright]
+# https://github.com/microsoft/pyright/blob/main/docs/configuration.md
+useLibraryCodeForTypes = true
+exclude = [".cache"]
+
+[tool.ruff]
+# https://beta.ruff.rs/docs/configuration/
+select = ['E', 'W', 'F', 'I', 'B', 'C4', 'ARG', 'SIM']
+ignore = ['W291', 'W292', 'W293']
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-security-scanner"
+version = "1.0.0"
+description = "Professional security audit tool for Django projects"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Django Security Scanner Team", email = "security@django-scanner.org"}
+]
+maintainers = [
+    {name = "Django Security Scanner Team", email = "security@django-scanner.org"}
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 3.2",
+    "Framework :: Django :: 4.0",
+    "Framework :: Django :: 4.1", 
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Security",
+]
+keywords = ["django", "security", "scanner", "vulnerability", "audit", "static-analysis"]
+requires-python = ">=3.8"
+dependencies = [
+    "Django>=3.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-django>=4.0",
+    "pytest-cov>=2.0",
+    "black>=22.0",
+    "isort>=5.0",
+    "flake8>=4.0",
+    "mypy>=0.900",
+]
+
+[project.urls]
+Homepage = "https://github.com/django-security-scanner/django-security-scanner"
+Documentation = "https://django-security-scanner.readthedocs.io/"
+Repository = "https://github.com/django-security-scanner/django-security-scanner.git"
+"Bug Tracker" = "https://github.com/django-security-scanner/django-security-scanner/issues"
+Changelog = "https://github.com/django-security-scanner/django-security-scanner/blob/main/CHANGELOG.md"
+
+[project.scripts]
+django-security-scan = "django_security_scanner.cli:main"
+
+[tool.setuptools.packages.find]
+exclude = ["tests*"]
+
+[tool.setuptools.package-data]
+django_security_scanner = ["templates/*", "static/*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+python_files = ["test_*.py", "*_test.py"]
+addopts = "--cov=django_security_scanner --cov-report=html --cov-report=term"

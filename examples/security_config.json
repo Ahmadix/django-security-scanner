@@ -1,0 +1,44 @@
+
+{
+  "description": "Example configuration for Django Security Scanner",
+  "severity_threshold": "moyen",
+  "exclude_patterns": [
+    "*/migrations/*",
+    "*/tests/*",
+    "*test*.py",
+    "*/venv/*",
+    "*/__pycache__/*"
+  ],
+  "include_dependencies": true,
+  "include_settings_check": true,
+  "custom_rules": {
+    "custom_dangerous_function": {
+      "pattern": "dangerous_custom_function(",
+      "severity": "élevé",
+      "description": "Custom dangerous function detected in codebase"
+    },
+    "deprecated_django_feature": {
+      "pattern": "deprecated_django_call(",
+      "severity": "moyen", 
+      "description": "Usage of deprecated Django feature detected"
+    }
+  },
+  "severity_weights": {
+    "critique": 1.0,
+    "élevé": 0.5,
+    "moyen": 0.25
+  },
+  "report_settings": {
+    "include_code_snippets": true,
+    "max_snippet_length": 200,
+    "group_by_file": true,
+    "include_charts": true
+  },
+  "false_positive_suppressions": [
+    {
+      "pattern_id": "eval",
+      "file_pattern": "*/admin/custom_eval.py",
+      "reason": "Controlled eval usage in admin interface"
+    }
+  ]
+}
